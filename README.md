@@ -56,7 +56,7 @@ let result = petRegex.test(petString);
 console.log(petRegex.test(petString));  // console will display 'true'
 ```
 
-## Ignore Case While Matching
+## Ignore Case While Matching (i)
 
 - Case, referring to upper or lower case letters.
 - Previously, ```.test()``` method example used strict equality when matching.
@@ -100,4 +100,23 @@ The .match syntax exactly the opposite of the .test syntax
 ```js
 'string.match(/regex/);
 /regex/.test('string');
+```
+
+## Find more than the first match (g)
+
+So far, the .test and .match method allows for only a single search pattern.
+
+```js
+let twinkleStar = "Twinkle, twinkle, little star";
+let starRegex = /twinkle/;
+twinkleStar.match(starRegex);        // .match would return the second ["twinkle"] because it uses strict equality
+```
+
+Use the global search flag (g) to extract a pattern multiple times.
+NOTE: Multiple flags may be applied on the regex. For example ```/search/gi```
+
+```js
+let twinkleStar = "Twinkle, twinkle, little star";
+let starRegex = /twinkle/ig;
+twinkleStar.match(starRegex);     // .match would return ["Twinkle", "twinkle"]
 ```
