@@ -73,3 +73,31 @@ let result = fccRegex.test(myString);
 
 console.log(fccRegex.test(myString));   // console will display 'true'
 ```
+
+## Extract Matches
+
+- Now, to extract the matches identified using the test method.
+- I find the terminology slightly confusing. But not a problem.
+  - ```.test()``` method is used to 'match' or identify the existence of patterns/strings
+  - ```.match()``` method is used to 'extract' the string.
+
+- To use the ```.match()``` method, apply the method on (after) a string and pass the regex in the parentheses.
+
+```js
+"Hello, World!".match(/Hello/); // This would return "Hello"
+```
+
+or to break it down by assigning variables,
+
+```js
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+ourStr.match(ourRegex);         // This would return "expressions
+```
+
+The .match syntax exactly the opposite of the .test syntax
+
+```js
+'string.match(/regex/);
+/regex/.test('string');
+```
