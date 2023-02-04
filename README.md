@@ -120,3 +120,16 @@ let twinkleStar = "Twinkle, twinkle, little star";
 let starRegex = /twinkle/ig;
 twinkleStar.match(starRegex);     // .match would return ["Twinkle", "twinkle"]
 ```
+
+## Match anything with Wildcard Period (.)
+
+The wildcard character ```.``` will match any one character in a pattern.
+It is also called 'dot' or 'period'.
+It can be used to represent any character in a pattern, or a word in a string.
+
+For example,
+
+```js
+let exampleStr = "Let's have fund with regular expressions!";
+let unRegex = /.un/;                       // the '.' represents any character. It will match any words or patterns ending in 'un'
+let result = unRegex.test(exampleStr);     // console would display 'true'
