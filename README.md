@@ -23,3 +23,21 @@ let result = myRegex.test(myString);    // This is the .text() method
 
 console.log(myRegex.test(myString));    // console will display 'true'
 ```
+
+## Match Literal Strings
+
+- ```.test()``` method uses strict equality
+- /Hello/ does not match /hello/ or /HELLO/
+- There is another method to match other forms of regex. It will be covered later.
+
+```js
+let waldoIsHiding = "Somewhere Waldo is hiding in this text.";
+
+let wrongRegex = /WALDO/;
+let waldoRegex = /Waldo/;
+
+wrongRegex.test(waldoIsHiding);
+waldoRegex.test(waldoIsHiding);
+
+console.log(wrongRegex.test(waldoIsHiding));    // console will display 'false'
+console.log(waldoRegex.test(wadloIsHiding));    // console will display 'true'
