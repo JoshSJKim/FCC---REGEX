@@ -202,14 +202,14 @@ let result = quoteSample.match(alphabetRegex);
 console.log(quoteSample.match(alphabetRegex)); //Console will display all the characters present in the string in sequence
 ```
 
-## Match Letters and Number of the Alphabet
+## Match Letters and Numbers of the Alphabet
 
 - Using the hyphen ```-``` works not only with matching a range of characters; it also works with range of numbers.
 - Range of numbers specified are inclusive of the numbers entered, i.e /[0-9]/ includes the number '0' and '9'.
 - It is also possible to combine both a range of number and characters in a single character class/set.
 
 ```js
-let jsnnyStr = "Jenny8675309";
+let jennyStr = "Jenny8675309";
 let myRegex = /[a-z0-9]ig;      // The flags will match all upper and lowercase alphabets as well as repeating numbers and characters
 jennyStr.match(myRegex);        // Notice that the character range and number range are not separated with a comma
 ```
@@ -227,4 +227,26 @@ let result = quoteSample.match(myRegex);
 
 console.log(quoteSample.match(myRegex));
 // console will display all (repeating, upper and lowercase) characters and numbers applicable to the range specified
+```
+
+## Match Single Characters Not Specified (Negated Character Sets)
+
+- It is also possible to create a character set to exclude the specified characters from the result.
+- This is called 'Negated Character Set'
+- To create a negated character set, enter a caret (^) after the opening bracket and before the characters you want excluded.
+
+### Exercise (/[^]/)
+
+Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex.
+
+```js
+let quoteSample = "3 blind mice.";
+// Create a negated character set using (^) to specify vowels and numbers to exclude from the result.
+// Remember to include appropriate flags
+let myRegex = /[^aeiou0-9]/ig;    // Again, note that the range of characters and range of numbers do not need to be separated.
+let result = quoteSample.match(myRegex);
+
+console.log(quoteSample.match(myRegex));
+// Console will display [ ' ', 'b', 'l', 'n', 'd', ' ', 'm', 'c', '.' ]
+// Notice that the result returns white spaces, as well as special characters.
 ```
