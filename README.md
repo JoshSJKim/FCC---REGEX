@@ -154,7 +154,7 @@ bugStr.match(bgRegex);      // ["bug"]
 bogStr.match(bgRegex);      // null
 ```
 
-Exercise
+### Exercise ([])
 
 Use a character class with vowels (a, e, i, o, u) in your regex vowelRegex to find all the vowels in the string quoteSample.
 Note: Be sure to match both upper- and lowercase vowels.
@@ -170,4 +170,34 @@ let result = quoteSample.match(vowelRegex);
 
 console.log(quoteSample.match(vowelRegex)); 
 // Console will display all 25 vowels identified in the string
+```
+
+## Match Letters of the Alphabet (range of characters)
+
+- Instead of having to specify each character you wish to match as shown in the previous exercise, a range of characters can be specified using the hyphen (-).
+
+```js
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/;    
+catStr.match(bgRegex);      // ["cat"]
+batStr.match(bgRegex);      // ["bat"]
+matStr.match(bgRegex);      // null
+```
+
+### Exercise ([-])
+
+Match all the letters in the string quoteSample.
+
+```js
+let quoteSample = "The quick brown fox jumps over the lazy dog.";
+/* Use '-' to cover the entire range of the alphabet.
+Also, include global search flag to include repeating characters, 
+as well the ignore letter casing flag to include upper and lowercase characters */
+let alphabetRegex = /[a-z]/ig;
+// Apply the .match method on the 'quoteSample' and pass 'alphabetRegex' in the parentheses
+let result = quoteSample.match(alphabetRegex);
+
+console.log(quoteSample.match(alphabetRegex)); //Console will display all the characters present in the string in sequence
 ```
