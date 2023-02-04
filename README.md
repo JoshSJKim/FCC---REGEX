@@ -50,8 +50,26 @@ console.log(waldoRegex.test(waldoIsHiding));    // console will display 'true'
 
 ```js
 let petString = "James has a pet cat.";
-let petRegex = /dog|cat|bird|fish/;
+let petRegex = /dog|cat|bird|fish/;     // This is the 'alteration'
 let result = petRegex.test(petString);
 
 console.log(petRegex.test(petString));  // console will display 'true'
+```
+
+## Ignore Case While Matching
+
+- Case, referring to upper or lower case letters.
+- Previously, ```.test()``` method example used strict equality when matching.
+- Regex can be matched, regardless of its letter case using what is called a 'flag'.
+- There are other flags, but this example uses a flag that ignores cases.
+- The ```i``` flag. It is used by adding it to the end of the regex.
+- For example ```/ignorecase/i```
+- Using this method matches strings, regardless of its letter casing.
+
+```js
+let myString = "freeCodeCamp";
+let fccRegex = /FreECoDecAmP/i;         // This is the ignore case flag
+let result = fccRegex.test(myString);
+
+console.log(fccRegex.test(myString));   // console will display 'true'
 ```
