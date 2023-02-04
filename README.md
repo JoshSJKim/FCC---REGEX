@@ -40,4 +40,18 @@ wrongRegex.test(waldoIsHiding);
 waldoRegex.test(waldoIsHiding);
 
 console.log(wrongRegex.test(waldoIsHiding));    // console will display 'false'
-console.log(waldoRegex.test(wadloIsHiding));    // console will display 'true'
+console.log(waldoRegex.test(waldoIsHiding));    // console will display 'true'
+```
+
+## Match a Literal String with Different (multiple) Possibilities
+
+- You can search for multiple patterns using regex to match literal strings.
+- This is done by using the 'alteration' or the ```OR(|)``` operator.
+
+```js
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/;
+let result = petRegex.test(petString);
+
+console.log(petRegex.test(petString));  // console will display 'true'
+```
