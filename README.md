@@ -201,3 +201,30 @@ let result = quoteSample.match(alphabetRegex);
 
 console.log(quoteSample.match(alphabetRegex)); //Console will display all the characters present in the string in sequence
 ```
+
+## Match Letters and Number of the Alphabet
+
+- Using the hyphen ```-``` works not only with matching a range of characters; it also works with range of numbers.
+- Range of numbers specified are inclusive of the numbers entered, i.e /[0-9]/ includes the number '0' and '9'.
+- It is also possible to combine both a range of number and characters in a single character class/set.
+
+```js
+let jsnnyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]ig;      // The flags will match all upper and lowercase alphabets as well as repeating numbers and characters
+jennyStr.match(myRegex);        // Notice that the character range and number range are not separated with a comma
+```
+
+### Exercise ([a-z0-9])
+
+Create a single regex that matches a range of letters between h and s, and a range of numbers between 2 and 6. Remember to include the appropriate flags in the regex.
+
+```js
+let quoteSample = "Blueberry 3.141592653s are delicious."
+// Specify character range from 'h' to 's' and numbers '2' to '6'
+// Remember to include appropriate flags
+let myRegex = /[h-s2-6]/ig;
+let result = quoteSample.match(myRegex);
+
+console.log(quoteSample.match(myRegex));
+// console will display all (repeating, upper and lowercase) characters and numbers applicable to the range specified
+```
