@@ -287,3 +287,35 @@ let result = difficultSpelling.match(myRegex);
 console.log(difficultSpelling.match(myRegex));
 // console will display ["ss", "ss"]
 ```
+
+## Match Characters that Occur Zero or More Times
+
+- There is a way to match characters that occur zero or times.
+- Similar to the use of '+' in the previous exercise, use the asterisk '*' to look for specified character that repeat zero or more times.
+
+```js
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;        // Notice the pattern is not enclosed in square brackets
+
+soccerWord.match(goRegex);  // ["goooooooo"]
+gPhrase.match(goRegex);     // ["g"]
+oPhrase.match(goRegex);     // null
+```
+
+### Exercise (/Aa*/)
+
+Create a regex chewieRegex that uses the * character to match an uppercase A character immediately followed by zero or more lowercase a characters in chewieQuote.
+
+```js
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+// Use the '*' method to find one uppercase 'A' and repeating lowercase 'a'
+// Do not use any flags
+let chewieRegex = /Aa*/;
+// I think '/A*/i;' or '/a*/i;' would achieve the same result, but I guess that's not the point of this exercise.
+let result = chewieQuote.match(chewieRegex);
+
+console.log(chewieQuote.match(chewieRegex));
+//console will display ["Aaaaaaaaaaaaaaaa"]
+```
