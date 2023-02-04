@@ -250,3 +250,40 @@ console.log(quoteSample.match(myRegex));
 // Console will display [ ' ', 'b', 'l', 'n', 'd', ' ', 'm', 'c', '.' ]
 // Notice that the result returns white spaces, as well as special characters.
 ```
+
+## Match Consecutive Characters
+
+- Sometimes it is necessary to match a character (or a group of characters) that appear one or more times consecutively.
+- Use the '+' character to check for such cases. Note that it only looks for consecutive characters.
+  
+- The syntax is ```/a+/g```
+- Note that it has the global search flag to look for repeating characters.
+- Also note that the pattern inside the forward slash are not enclosed in square brackets.
+
+```js
+let testStr1 = "abcd";
+let testStr2 = "aabc";
+let testStr3 = "abac";
+let testStr4 = "bcde";
+let testRegex = /a+/g;      // This is the syntax.
+                            // Ignore letter casing flag (i) can also be added to look for consecutive upper and lowercase characters
+testStr1.match(testRegex);  // ["a"]    Note that it also matches single instances of 'a'
+testStr2.match(testRegex);  // ["aa"]
+testStr3.match(testRegex);  // ["a", "a"] It also looks for repeating instances of single 'a'
+testStr4.match(testRegex);  // null
+```
+
+### Exercise (/a+/g)
+
+You want to find matches when the letter s occurs one or more times in Mississippi. Write a regex that uses the + sign.
+
+```js
+let difficultSpelling = "Mississippi";
+// Use the '+' method to match match consecutive 's' in the string.
+// Remember to include repeating character search.
+let myRegex = /s+/g;
+let result = difficultSpelling.match(myRegex);
+
+console.log(difficultSpelling.match(myRegex));
+// console will display ["ss", "ss"]
+```
