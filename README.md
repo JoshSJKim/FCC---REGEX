@@ -133,3 +133,41 @@ For example,
 let exampleStr = "Let's have fund with regular expressions!";
 let unRegex = /.un/;                       // the '.' represents any character. It will match any words or patterns ending in 'un'
 let result = unRegex.test(exampleStr);     // console would display 'true'
+```
+
+## Match Single Character with Multiple Possibilities ([])
+
+- The module covered literal patterns (/literal/) and wildcard character (.), which are the extremes of regular expressions.
+- literal pattern method finds exact matches and the wildcard method matches everything.
+- Add some flexibility in the search with 'character classes'.
+- It allows you do define a group of characters you wish to match by placing the specific characters inside square brackets ([]).
+
+```js
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/;
+bigStr.match(bgRegex);      // ["big"]
+bagStr.match(bgRegex);      // ["bag"]
+bugStr.match(bgRegex);      // ["bug"]
+bogStr.match(bgRegex);      // null
+```
+
+Exercise
+
+Use a character class with vowels (a, e, i, o, u) in your regex vowelRegex to find all the vowels in the string quoteSample.
+Note: Be sure to match both upper- and lowercase vowels.
+
+```js
+let quoteSample = "Beware of bugs in teh above code; I have only proved it correct, not tried it";
+/* Include all vowels wrapped in '[]' in the regex. The vowels do not need to be separated with commas.
+Also, it should include the global search flag to find repeating vowels, 
+as well as the ignore letter casing flag to find both upper and lower case vowels.*/
+let vowelRegex = /[aeiou]gi/;
+// Apply the .match method on the 'quoteSample' and pass 'vowelRegex' in the parentheses
+let result = quoteSample.match(vowelRegex);
+
+console.log(quoteSample.match(vowelRegex)); 
+// Console will display all 25 vowels identified in the string
+```
