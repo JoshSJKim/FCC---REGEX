@@ -319,3 +319,70 @@ let result = chewieQuote.match(chewieRegex);
 console.log(chewieQuote.match(chewieRegex));
 //console will display ["Aaaaaaaaaaaaaaaa"]
 ```
+
+## Greedy Matching and Lazy Matching
+
+- Regular expressions are by default 'greedy'.
+- It means that it finds the longest possible part of a string that fits the specified regex pattern.
+- The opposite of 'greedy' is 'lazy'.
+- It means that if finds the smallest possible part of the string that satisfies the specified regex pattern.
+
+### Greedy (Includes all possible matches)
+
+```/t[a-z]*i/;```
+
+The above regex pattern looks for a string that begins with 't' and ends with 'i'.
+In between the 't' and 'i' can be zero or more lowercase letters between 'a' and 'z'.
+
+If the above regex pattern is applied to a variable defined as "titanic", it would return the following
+
+```js
+let myStr = "titanic";
+let myRegex = /t[a-z]*i/;
+let result = myStr.match(myRegex); 
+// it would return ["titani"]. It finds the longest possible sub-string that matches against the original string.
+```
+
+### Lazy (Excludes all possible matches)
+
+Lazy matching can be achieved by using the '?' character.
+
+```/t[a-z]*?i/;```
+
+The above regex pattern is the exact opposite of the 'greedy' regex pattern.
+It will look for a string that begins with 't' and ends with 'i'.
+In between 't' and 'i' can be zero or more lowercase letters between 'a' and 'z',
+and by adding '?', it will exclude all matched patterns.
+
+So, if the above regex pattern is applied to a variable defined as "titanic", it would return the following
+
+```js
+let myStr = "titanic";
+let myRegex = /t[a-z]*?i/
+let result = myStr.match(myRegex);
+/* The above would return ["ti"]. 
+It looks for all of the lowercase letters from 'a' to 'z' found between the first 't' and last 'i' of the given string "titanic".
+Then the '?' will exclude all matched patterns and return the result.*/
+```
+
+### Exercise (Lazy Matching)
+
+Fix the regex /<.*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". 
+Remember the wildcard . in a regular expression matches any character.
+
+```js
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*>/;
+let result = text.match(myRegex);
+```
+
+- Let's see what's happening in the above snippet.
+  - Variable 'text' is assigned with an HTML string "<h1>Winter is coming</h1>";
+  - The regex pattern is defined as ```/<.*>/;
+    - This means that the result string should begin with a '<' and end with a '>'
+    - The '.' is a wildcard and could represent anything.
+    - the '*' behind the wildcard specifies zero or more number of any characters.
+  - Therefore, the result should return a string that begins with '<' and end with '>' with any characters in between that are found in the original string.
+- In this case, it would return ```"<h1>Winter is coming</h1>"```
+
+In order to return only the opening tag "<h1>", the regex pattern needs alteration.
