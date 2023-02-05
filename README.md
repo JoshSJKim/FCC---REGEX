@@ -422,3 +422,25 @@ let myRegex = /<..>[a-z]*?/;
 - Since the '<' is not a part of the alphabet character, it will stop iteration and terminate matching the pattern.
 - So, the result return value would be ```"<h1>"```
 - But, this seems inefficient.
+
+It looks like there are many ways to make this challenge pass
+
+Even this works
+
+```js
+let myRegex = /<..>>*?/;
+```
+
+But passing the challenge and understanding the logic is a different thing.
+
+### Greedy vs. Lazy
+
+Now I understand why it's called greedy and lazy.
+
+Greedy, being greedy, will iterate through as much of the given string as possible to satisfy the overall pattern.
+
+Whereas
+
+Lazy, being lazy, will iterate through as little of the given string as possible to return the shortest possible string that still satisfies the regex pattern.
+
+So, ```/<.*?>/``` will stop matching the regex pattern at the first sight of '>'. Which will return ```<h1>```
