@@ -437,10 +437,27 @@ But passing the challenge and understanding the logic is a different thing.
 
 Now I understand why it's called greedy and lazy.
 
-Greedy, being greedy, will iterate through as much of the given string as possible to satisfy the overall pattern.
+Greedy, being greedy, will iterate through as much of the given string as possible to satisfy the regex pattern.
 
 Whereas
 
 Lazy, being lazy, will iterate through as little of the given string as possible to return the shortest possible string that still satisfies the regex pattern.
 
 So, ```/<.*?>/``` will stop matching the regex pattern at the first sight of '>'. Which will return ```<h1>```
+
+## Find the Criminals challenge
+
+Write a greedy regex that finds one or more criminals within a group of other people.
+A criminal is represented by the capital letter C.
+
+- Remember, it's a greedy regex pattern. Regex is greedy by default, unless specified 'lazy'.
+- One or more criminals 'C' within a group of other people (other characters)
+- Ignore letter casing flag shouldn't be used since we're looking for capital 'C'
+- However, global search flag should be applied since we want to find all recurring 'C'
+- We want to find consecutive 'C' in a group, as well as single 'C' in a group. So use the '+'
+
+- ```let reCriminals = /./;``` This is the original challenge
+
+```js
+let reCriminals = /C+/g; // The solution
+```
