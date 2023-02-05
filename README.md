@@ -365,9 +365,9 @@ It looks for all of the lowercase letters from 'a' to 'z' found between the firs
 Then the '?' will exclude all matched patterns and return the result.*/
 ```
 
-### Exercise (Lazy Matching)
+### Exercise (Lazy Matching ```*?```)
 
-Fix the regex /<.*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". 
+Fix the regex /<.*>/ to return the HTML tag ```<h1>``` and not the text ```"<h1>Winter is coming</h1>"```.
 Remember the wildcard . in a regular expression matches any character.
 
 ```js
@@ -377,7 +377,7 @@ let result = text.match(myRegex);
 ```
 
 - Let's see what's happening in the above snippet.
-  - Variable 'text' is assigned with an HTML string "<h1>Winter is coming</h1>";
+  - Variable 'text' is assigned with an HTML string ```"<h1>Winter is coming</h1>";```
   - The regex pattern is defined as ```/<.*>/;
     - This means that the result string should begin with a '<' and end with a '>'
     - The '.' is a wildcard and could represent anything.
@@ -385,4 +385,40 @@ let result = text.match(myRegex);
   - Therefore, the result should return a string that begins with '<' and end with '>' with any characters in between that are found in the original string.
 - In this case, it would return ```"<h1>Winter is coming</h1>"```
 
-In order to return only the opening tag "<h1>", the regex pattern needs alteration.
+In order to return only the opening tag ```"<h1>"```, the regex pattern needs alteration.
+
+I am having a bit of trouble understanding the logic behind this.
+
+I know the answer to this exercise so let's unpack that first.
+
+```js
+let text = "<h1>Winter is coming</h1>;
+let myRegex = /<.*?>/;
+let result = text.match(myRegex);       // It would return ["<h1>"]
+```
+
+So the above is the correct answer.
+
+BUT
+
+If ```/<.*>/``` provided in the original challenge includes all characters between the first '<' and last '>',
+shouldn't ```/<.*?>/``` EXCLUDE all characters between the first '<' and last '>' to return ["<>"]?
+(It is in fact the shortest possible string to be returned when compared to the original string)
+
+OR
+
+Does ```/<.*?>/``` terminate the iteration at the first sight of the character '>'?
+Meaning that it doesn't even bother iterating through the entire string. Hence, LAZY matching.
+If this is the case, it makes sense.
+
+I even tried the following and the challenge passed.
+
+```js
+let myRegex = /<..>[a-z]*?/;
+```
+
+- ```<..>``` matches any two characters inside the opening tag, which would return ```"<h1>"```
+- ```[a-z]*?``` matches any text inside the HTML tag and excludes it from the return value.
+- Since the '<' is not a part of the alphabet character, it will stop iteration and terminate matching the pattern.
+- So, the result return value would be ```"<h1>"```
+- But, this seems inefficient.
