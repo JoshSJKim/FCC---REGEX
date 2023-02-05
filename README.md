@@ -494,3 +494,23 @@ let lastRegex = /caboose$/;
 let result = lastRegex.test(caboose);
 // The result will return 'true'
 ```
+
+## Match All Letters and Numbers
+
+- There is a regex pattern shortcut to match all letters (upper and lowercase), as well as numbers and the underscore (_)
+- This is referred to as the 'alphanumeric characters'.
+- The shorthand syntax and its longhand equivalent is shown below
+
+``` /\w/; = /[A-Za-z0-9_];```
+
+### Exercise (/\w/)
+
+Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
+
+```js
+let quoteSample = "The five boxing wizards jump quickly";
+/* Use the 'match-all' shorthand (/\w/) to match all alphanumeric characters.
+Apply the global search flag to match recurring characters.*/
+let alphabetRegexV2 = /\w/g;
+let result = quoteSample.match(alphabetRegexV2).length; // It will return '31'
+```
