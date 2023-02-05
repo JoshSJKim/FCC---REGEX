@@ -501,7 +501,7 @@ let result = lastRegex.test(caboose);
 - This is referred to as the 'alphanumeric characters'.
 - The shorthand syntax and its longhand equivalent is shown below
 
-``` /\w/; = /[A-Za-z0-9_];```
+```/\w/; = /[A-Za-z0-9_];```
 
 ### Exercise (/\w/)
 
