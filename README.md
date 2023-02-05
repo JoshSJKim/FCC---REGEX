@@ -462,7 +462,7 @@ A criminal is represented by the capital letter C.
 let reCriminals = /C+/g; // The solution
 ```
 
-## Match Beginning String Patterns
+## Match Beginning String Patterns (/^/)
 
 Previously, the caret (^) character was used within a character set (/[^aeiou0-9]/) to create a negated character set, which are characters that are specified to be excluded from the match pattern.
 It serves a different purpose when it is used without a character set.
@@ -476,5 +476,22 @@ let rickyAndCal = "Cal and Ricky both like racing";
 // If you use the syntax below to search for Ricky (/^Ricky), it will return 'false' because Ricky is not at the beginning of the string
 let calRegex = /^Cal/;
 let result = calRegex.test(rickyAndCal);
+// The result will return 'true'
+```
+
+## Match Ending String Patterns (/$/)
+
+Opposite to the previous exercise, there is a way to search for ending string patterns.
+The caret (^) was place prior to the regex to search for the beginning string patterns.
+Use the anchor character ($) after the regex to search for ending string patterns.
+
+Use the anchor character ($) to match the string caboose at the end of the string caboose.
+
+```js
+let caboose = "The last car on a train is the caboose";
+/* Same rule applied on the previous exercise applies here as well. 
+The '$' method will only search for the specified pattern at the end of the string*/
+let lastRegex = /caboose$/;
+let result = lastRegex.test(caboose);
 // The result will return 'true'
 ```
