@@ -461,3 +461,20 @@ A criminal is represented by the capital letter C.
 ```js
 let reCriminals = /C+/g; // The solution
 ```
+
+## Match Beginning String Patterns
+
+Previously, the caret (^) character was used within a character set (/[^aeiou0-9]/) to create a negated character set, which are characters that are specified to be excluded from the match pattern.
+It serves a different purpose when it is used without a character set.
+It is used to search for patterns at the beginning of strings.
+
+Use the caret character in a regex to find Cal only in the beginning of the string rickyAndCal.
+
+
+```js
+let rickyAndCal = "Cal and Ricky both like racing";
+// If you use the syntax below to search for Ricky (/^Ricky), it will return 'false' because Ricky is not at the beginning of the string
+let calRegex = /^Cal/;
+let result = calRegex.test(rickyAndCal);
+// The result will return 'true'
+```
