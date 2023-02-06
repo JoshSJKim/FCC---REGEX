@@ -642,3 +642,19 @@ let username = "JackOfAllTrades";
 let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
 let result = userCheck.test(username);
 ```
+
+## Match Whitespace
+
+- You can use a regex pattern to search for white spaces in a string.
+- White spaces include carriage return, tab, form feed, and new line characters [ \r\t\f\n\v]
+
+The basic application of this regex is the same as the other shorthand regex patterns.
+I won't bother explaining the details.
+
+```js
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g;
+let result = sample.match(countWhiteSpace);
+// Result would return [ ' ', ' ', ' ', ' ', ' ' ]
+console.log(sample.match(countWhiteSpace).length);
+// console will display '5'
