@@ -658,3 +658,16 @@ let result = sample.match(countWhiteSpace);
 // Result would return [ ' ', ' ', ' ', ' ', ' ' ]
 console.log(sample.match(countWhiteSpace).length);
 // console will display '5'
+```
+
+## Match Non-Whitespace Characters
+
+This should be self-explanatory now.
+The syntax is '\S'
+It will match anything other than white spaces.
+
+```js
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g;
+let result = sample.match(countNonWhiteSpace).length;
+// console will display '38'
