@@ -514,3 +514,33 @@ Apply the global search flag to match recurring characters.*/
 let alphabetRegexV2 = /\w/g;
 let result = quoteSample.match(alphabetRegexV2).length; // It will return '31'
 ```
+
+## Match Everything but Letters and numbers
+
+The previous exercise used the shorthand ```/\w/``` to search for alphanumeric characters.
+The opposite is ```/\W/``` (notice the capital 'W') which is used to search for everything EXCEPT alphanumeric characters.
+The longhand for the above shorthand is ```[^A-Za-z0-9_]```
+
+```js
+let shortHand = /\W/;
+let numbers = "42%";
+let sentence = "Coding!";
+numbers.match(shortHand);   // Result would return '%'
+sentence.match(shortHand);  // Result would return '!'
+```
+
+### Exercise (/\W/)
+
+Use the shorthand character class \W to count the number of non-alphanumeric characters in various quotes and strings.
+
+```js
+let quoteSample = "The five boxing wizards jump quickly.";
+// Use the shorthand (/\W/) to search for all non-alphanumeric characters
+// Remember to use the global search flag (g) to match all recurring characters.
+let nonAlphabetRegex = /\W/g;
+let result = quoteSample.match(nonAlphabetRegex).length;  // Result would return '6'
+
+// Note that spaces between words are counted as non-alphanumeric character
+console.log(quoteSample.match(nonAlphabetRegex));
+// console will display [ ' ', ' ', ' ', ' ', ' ', '.' ]
+```
