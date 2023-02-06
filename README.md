@@ -98,7 +98,7 @@ ourStr.match(ourRegex);         // This would return "expressions
 The .match syntax exactly the opposite of the .test syntax
 
 ```js
-'string.match(/regex/);
+'string'.match(/regex/);
 /regex/.test('string');
 ```
 
@@ -130,7 +130,7 @@ It can be used to represent any character in a pattern, or a word in a string.
 For example,
 
 ```js
-let exampleStr = "Let's have fund with regular expressions!";
+let exampleStr = "Let's have fun with regular expressions!";
 let unRegex = /.un/;                       // the '.' represents any character. It will match any words or patterns ending in 'un'
 let result = unRegex.test(exampleStr);     // console would display 'true'
 ```
@@ -280,7 +280,7 @@ You want to find matches when the letter s occurs one or more times in Mississip
 ```js
 let difficultSpelling = "Mississippi";
 // Use the '+' method to match match consecutive 's' in the string.
-// Remember to include repeating character search.
+// Remember to include the global search flag.
 let myRegex = /s+/g;
 let result = difficultSpelling.match(myRegex);
 
@@ -582,4 +582,63 @@ let noNumRegex = /\D/g;
 let result = movieName.match(noNumRegex).length;
 // Result would return '17'.
 // Note that spaces between characters are also counted.
+```
+
+## Restrict Possible Usernames (Challenge)
+
+NOTE: Do not confuse negated character sets with matching beginning of character sets
+``` /^/ !== /[^]/ ```
+
+Usernames can only use alpha-numeric characters.
+The only numbers in the username have to be at the end.
+There can be zero or more of them at the end.
+Username cannot start with the number.
+Username letters can be lowercase and uppercase.
+Usernames have to be at least two characters long.
+A two-character username can only use alphabet letters as characters.
+
+Break it down
+
+- It can only use alphanumeric characters. ``` /[a-zA-Z]\d/ ``` should cover that.
+- Throw in a ignore letter casing flag (i) to make it case insensitive.
+- Numbers in the username have to be at the end. ``` \d$ ```
+- There can be zero or more numbers. ``` \d*$ ``` This means that the username and can, or may not end with numbers.
+- It cannot start with a number. ``` /^[a-z]/i; ``` This ensures that it begins with a lower or uppercase letter.
+- Username has to be at least two characters long. ``` /^[a-z][a-z]+/ ``` This ensures that the first character is a letter, followed by one or more letters.
+
+Put it together
+
+``` /^[a-z][a-z]+\d*$/i: ```
+
+- The first character is a letter, case insensitive due to the (i) flag at the end.
+- It is followed by one or more case insensitive letters.
+- It ends with zero or more numbers at the end.
+- Thus ensuring that if the username consists of two characters, it is both letters.
+
+I ran this through the editor and it failed.
+The second character can be a number if the username is longer than two characters. (ex. A74)
+
+Looked through the notes and realized I could use the OR(|) operator to add another pattern.
+I just need to come up with a pattern that satisfies something like 'A74'
+
+- It still has to start with a case insensitive letter and may or may not end with a number.
+- But if the second character is a number, ONE OR MORE number should follow.
+  
+  ``` /^[a-z][0-9]\d+$/i ```
+
+- This ensures that the first character is a case insensitive letter
+- The second character is a number.
+- Which is followed by one or more numbers at the end.
+
+So, put it together again.
+
+```/^[a-z][a-z]+\d*$|^[a-z][0-9]\d+$/i;```
+
+And the pattern passes.
+Later I realized that '[0-9]` can be replaced with '\d'
+
+```js
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let result = userCheck.test(username);
 ```
