@@ -564,3 +564,22 @@ let numRegex = /\d/g;
 let result = movieName.match(numRegex).length;
 // Result would return '4'
 ```
+
+## Match All Non-Numbers
+
+To search for all non-numbers as opposed to the previous exercise,
+use \D with an uppercase D. The longhand equivalent is ```[^0-9]```,
+which looks for a single character that is not a number between zero and nine.
+
+### Exercise (/\D/)
+
+Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
+
+```js
+let movieName = "2001: A Space Odyssey";
+// I shouldn't have to explain this again
+let noNumRegex = /\D/g;
+let result = movieName.match(noNumRegex).length;
+// Result would return '17'.
+// Note that spaces between characters are also counted.
+```
