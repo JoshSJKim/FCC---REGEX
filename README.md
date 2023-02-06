@@ -544,3 +544,23 @@ let result = quoteSample.match(nonAlphabetRegex).length;  // Result would return
 console.log(quoteSample.match(nonAlphabetRegex));
 // console will display [ ' ', ' ', ' ', ' ', ' ', '.' ]
 ```
+
+## Match All Numbers
+
+Another common shortcut for string pattern is digits or numbers.
+The shorthand is \d with a lowercase 'd'
+The longhand, or character class is [0-9], which looks for a single character of any number between zero and nine.
+
+### Exercise (/\d/)
+
+Use the shorthand character class \d to count how many digits are in movie titles.
+Written out numbers ("six" instead of 6) do not count.
+
+```js
+let movieName = "2001: A Space Odyssey";
+// Apply the same logic as the previous exercises.
+// Remember to include the global search flag.
+let numRegex = /\d/g;
+let result = movieName.match(numRegex).length;
+// Result would return '4'
+```
