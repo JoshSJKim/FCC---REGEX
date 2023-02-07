@@ -729,3 +729,18 @@ let haStr = "Hazzzzah";
 let haRegex = /Haz{4,}ah/;
 let result = haRegex.test(haStr);
 ```
+
+## Specify Exact Number of Matches
+
+This is self-explanatory.
+The syntax requires only one number in the curly braces to specify the exact number ``` /{x}/ ```
+
+### Exercise (/{x}/)
+
+Change the regex timRegex to match the word Timber only when it has four letter m's.
+
+```js
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/;           // Will return true only if there are 4 'm's in the string 
+let result = timRegex.test(timStr);   // true
+```
