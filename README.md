@@ -802,3 +802,33 @@ let sampleWord = "astronaut";
 let pwRegex = /(?=\w{6,})(?=\D*\d{2})/;
 let result = pwRegex.test(sampleWord);    // result will return 'false'
 ```
+
+## Check for Mixed Grouping of Characters ((|))
+
+- You can create a regex pattern to check for groups of characters.
+- In other words, you can check if the string passed has 'this' OR 'that'.
+- Use parentheses with an OR operator ((|)) to separate the options.
+
+For example
+
+```js
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/;
+testRegex.test(testStr);    
+// The test method will check if the string matches 'Penguin' OR 'Pumpkin'.
+// 'Pumpkin' matches and result will return 'true'
+```
+
+### Exercise ((|))
+
+Fix the regex so that it checks for the names of Franklin Roosevelt or Eleanor Roosevelt in a case sensitive manner and it should make concessions for middle names.
+
+```js
+let myString = "Eleanor Roosevelt";
+// Check for names "Franklin Roosevelt" or "Eleanor Roosevelt", case sensitive. /(Franklin|Eleanor)/
+// Make room for middle names. It could be a white space, initial, or full middle name.
+// Use non-numeric character shorthand to match one or more non-numeric characters (/\D+/)
+// End with the last name. "Roosevelt"
+let myRegex = /(Franklin|Eleanor)\D+Roosevelt/;
+let result = myRegex.test(myString);    // Result will return 'true'
+```
