@@ -868,3 +868,33 @@ let reRegex = /^(\d+) \1 \1$/;
 // '$' is added at the end to ensure that the match terminates when three identical repeating numbers are matched
 let result = reRegex.test(repeatNum);   // true
 ```
+
+## Use Capture Groups to Search and Replace (.replace)
+
+Use a regex pattern to search for a strong and use a .replace method to replace the string matched.
+
+```js
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");   // "The sky is blue."
+```
+
+- Similar to using the backslash and position number to assign capture group variables, use the '$' to replace the variables in position.
+
+For example ``` "Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1') ``` The replace call will return "Camp Code"
+
+### Exercise (.replace)
+
+- Write a regex fixRegex using three capture groups that will search for each word in the string one two three.
+- Then update the replaceText variable to replace one two three with the string three two one and assign the result to the result variable.
+- Make sure you are utilizing capture groups in the replacement string using the dollar sign ($) syntax.
+
+```js
+let str = "one two three";
+// use three capture groups to specify one or more alphanumeric characters (\w+)
+// Add a space between the capture groups to specify white space between words. (\s)
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/;
+// Use '$' to assign the capture group variables to replace positions
+let replaceText = "$3 $2 $1";
+let result = str.replace(fixRegex, replaceText);  // Result will display "three two one"
+```
