@@ -832,3 +832,39 @@ let myString = "Eleanor Roosevelt";
 let myRegex = /(Franklin|Eleanor)\D+Roosevelt/;
 let result = myRegex.test(myString);    // Result will return 'true'
 ```
+
+## Reuse Patterns Using Capture Groups
+
+- Regex can be used to match identical repeating character patterns.
+
+For example ``` let repeatStr = "row row row your boat"; ```
+
+- Create a 'capture group' within the regex pattern using parentheses.
+- For the above example, use \w+ to capture one or more alphanumeric character pattern ``` /(\w+)/ ```
+- When a substring that matches the capture group pattern is identified, it is temporarily saved as a variable.
+- This variable can be accessed within the same regex using a backslash and the number of the capture group.
+- The number is assigned according to the position of the capture group within the regex. (e.g \1)
+
+```js
+let repeatRegex = /(w+) \1 \1/;   // The capture group and its variables are separated by white space
+repeatRegex.test(repeatStr);      // true
+repeatStr.match(repeatRegex);     // it will return an array with the matched substring and its capture group(s) ["row row row", "row"]
+```
+
+### Exercise (Capture Group)
+
+Use capture groups in reRegex to match a string that consists of only the same number repeated exactly three times separated by single spaces.
+
+```js
+let repeatNum = "42 42 42";
+// Use capture group to match a string that consists of the same number repeating EXACTLY three times
+// The numbers need to be separated with a space.
+// EXACTLY three times is the key.
+let reRegex = /^(\d+) \1 \1$/;        
+// '\d+' looks for a one or more digit number
+// '^' ensures that it begins with that number
+// space between numbers is specified with white space
+// The shorthand to recall variables are used twice to result in repeating the number thrice
+// '$' is added at the end to ensure that the match terminates when three identical repeating numbers are matched
+let result = reRegex.test(repeatNum);   // true
+```
