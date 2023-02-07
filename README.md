@@ -671,3 +671,34 @@ let sample = "Whitespace is important in separating words";
 let countNonWhiteSpace = /\S/g;
 let result = sample.match(countNonWhiteSpace).length;
 // console will display '38'
+```
+
+## Specify Upper and Lower Number of Matches (Quantifier)
+
+- '+' allows you to search for one or more characters
+- '*' allows you to search for zero or more characters
+- You can use '{}' specify a range of numbers. This is a 'Quantity Specifier'
+- Specify two numbers in the braces to represent the lower and upper number of patterns
+
+Example
+
+```js
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/; // This will test if the string has 3-5 'a's.
+multipleA.test(A4);        // true
+multipleA.test(A2);        // false
+```
+
+- The quantifier should be placed immediately after the character you wish to apply the quantifier to.
+- NOTE: If there are multiple words with space in between the string, it is necessary to specify the white space in the regex pattern.
+
+### Exercise (/{}/)
+
+Change the regex ohRegex to match the entire phrase Oh no only when it has 3 to 6 letter h's.
+
+```js
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6}\sno/;      // \s used to specify the white space between "Oh" and "no"
+let result = ohRegex.test(ohStr); // Result would return 'true'
+```
