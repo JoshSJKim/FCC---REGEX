@@ -760,3 +760,45 @@ let favWord = "favorite";
 let favRegex = /favou?rite/;
 let result = favRegex.test(favWord);  // result will return true
 ```
+
+## Positive and Negative Lookahead
+
+- Lookahead expressions are 'zero-width' assertion
+- It is a type of regular expression construct that checks whether a string matches a particular pattern
+- it does not consume any characters from the string being matched.
+- It checks to see if the specified pattern exists/condition is met.
+
+### Positive lookahead (?=...)
+
+- Positive lookahead asserts that the pattern specified inside the parentheses must match in order to pass.
+- But the pattern inside the parentheses do not represent any characters. It represents a condition that must be met (zero-width assertion)
+- multiple lookahead patterns may be entered in a single regex pattern. Separate the patterns by wrapping each condition in separate parentheses.
+- It acts like an AND (&&) operator.
+
+Example
+
+``` /\w+(?=\d)/ ``` This matches one or more alphanumeric character(s) that is followed by a digit. It must be followed by a digit to pass.
+
+### Negative lookahead (?!...)
+
+- Negative lookahead is exactly the opposite of positive lookahead.
+- It asserts that the pattern specified inside the parentheses must not match in order to pass.
+
+Example
+
+``` /\w+(?!\d)/ ``` This matches one or more alphanumeric character(s) that is not followed by a digit. In other words, if it is followed by a digit, the string will not pass.
+
+### Exercise (positive lookahead)
+
+Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long, and have two consecutive digits.
+
+```js
+let sampleWord = "astronaut";
+// The password must meet the outlined conditions. It must include the conditions. (?=...)
+// It doesn't specify letters or numbers, so it's alphanumeric (\w)
+// The password must be longer than 5 characters. ({6,}) at least 6 characters
+// It must have two consecutive digits. (\d{2})
+// It can start with two consecutive numbers. In other words, it can start with zero or more non-numeric characters (\D*)
+let pwRegex = /(?=\w{6,})(?=\D*\d{2})/;
+let result = pwRegex.test(sampleWord);    // result will return 'false'
+```
