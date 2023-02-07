@@ -744,3 +744,19 @@ let timStr = "Timmmmber";
 let timRegex = /Tim{4}ber/;           // Will return true only if there are 4 'm's in the string 
 let result = timRegex.test(timStr);   // true
 ```
+
+## Check for All or none
+
+Sometimes the patterns searched may or may not exist.
+The difference between American and British English is a good example.
+Words like color/colour or behavior/behaviour are such examples.
+
+Use a '?' following the character in question. It is essentially saying that this character is optional.
+
+### Exercise (/?/)
+
+```js
+let favWord = "favorite";
+let favRegex = /favou?rite/;
+let result = favRegex.test(favWord);  // result will return true
+```
