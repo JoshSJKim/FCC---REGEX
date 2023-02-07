@@ -702,3 +702,30 @@ let ohStr = "Ohhh no";
 let ohRegex = /Oh{3,6}\sno/;      // \s used to specify the white space between "Oh" and "no"
 let result = ohRegex.test(ohStr); // Result would return 'true'
 ```
+
+## Specify only Lower Number of Matches
+
+You can specify only the lower number of patterns without an upper limit.
+Keep the same syntax with the first number representing the lower limit followed by a comma.
+
+For example
+
+```js
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;    // This pattern will match strings with 3 or more 'a' without an upper limit.
+multipleA.test(A4);           // true
+multipleA.test(A2);           // false
+multipleA.test(A100);         // true
+```
+
+### Exercise (/{x,}/)
+
+Change the regex haRegex to match the word Hazzah only when it has four or more letter z's.
+
+```js
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/;
+let result = haRegex.test(haStr);
+```
