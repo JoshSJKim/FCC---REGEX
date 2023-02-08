@@ -898,3 +898,19 @@ let fixRegex = /(\w+)\s(\w+)\s(\w+)/;
 let replaceText = "$3 $2 $1";
 let result = str.replace(fixRegex, replaceText);  // Result will display "three two one"
 ```
+
+## Remove Whitespace from Start and End
+
+Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+
+- Use capture group to identify one or more whitespace (\s+)
+- It needs to search for whitespace at the beginning and end of a string ('^' and '$')
+- The regex needs to specify cases where the whitespace is at the beginning, or at the end (/^(\s+)|(s+)$/)
+- It also needs to search for recurring whitespace. Add a global search flag (g)
+- use replace method to replace matched whitespace with an empty space ('')
+
+```js
+let hello = "  Hello, World!  ";
+let wsRegex = /^(\s+)|(\s+)$/g;
+let result = hello.replace(wsRegex, '');  // Result will return "Hello, World!"
+```
