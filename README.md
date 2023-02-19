@@ -1,13 +1,13 @@
 # FCC---REGEX
 
-Regular Expressions
+## Regular Expressions
 
 - Regular expressions (regex) are used in programming languages to match parts of strings.
 - It is a sequence of characters that define a search pattern.
 - It is used to check if a string contains specified patters, or to find and replace parts of a string that match the pattern.
 - Regex can be used in various programming languages to perform pattern matching and manipulation
 
-## Using the Test Method
+### Using the Test Method
 
 - If you want to find the word 'the' in this current sentence, ````/the/``` can be used as the regular expression.
 - ```""``` quotation marks are not required within the regular expression.
@@ -19,12 +19,12 @@ Regular Expressions
 ```js
 let myString = "Hello, World!";
 let myRegex = /Hello/;
-let result = myRegex.test(myString);    // This is the .text() method
+let result = myRegex.test(myString);    // This is the .test() method
 
 console.log(myRegex.test(myString));    // console will display 'true'
 ```
 
-## Match Literal Strings
+### Match Literal Strings
 
 - ```.test()``` method uses strict equality
 - /Hello/ does not match /hello/ or /HELLO/
@@ -43,7 +43,7 @@ console.log(wrongRegex.test(waldoIsHiding));    // console will display 'false'
 console.log(waldoRegex.test(waldoIsHiding));    // console will display 'true'
 ```
 
-## Match a Literal String with Different (multiple) Possibilities
+### Match a Literal String with Different (multiple) Possibilities
 
 - You can search for multiple patterns using regex to match literal strings.
 - This is done by using the 'alteration' or the ```OR(|)``` operator.
@@ -56,7 +56,7 @@ let result = petRegex.test(petString);
 console.log(petRegex.test(petString));  // console will display 'true'
 ```
 
-## Ignore Case While Matching (i)
+### Ignore Case While Matching (i)
 
 - Case, referring to upper or lower case letters.
 - Previously, ```.test()``` method example used strict equality when matching.
@@ -74,7 +74,7 @@ let result = fccRegex.test(myString);
 console.log(fccRegex.test(myString));   // console will display 'true'
 ```
 
-## Extract Matches
+### Extract Matches
 
 - Now, to extract the matches identified using the test method.
 - I find the terminology slightly confusing. But not a problem.
@@ -102,7 +102,7 @@ The .match syntax exactly the opposite of the .test syntax
 /regex/.test('string');
 ```
 
-## Find more than the first match (g)
+### Find more than the first match (g)
 
 So far, the .test and .match method allows for only a single search pattern.
 
@@ -121,7 +121,7 @@ let starRegex = /twinkle/ig;
 twinkleStar.match(starRegex);     // .match would return ["Twinkle", "twinkle"]
 ```
 
-## Match anything with Wildcard Period (.)
+### Match anything with Wildcard Period (.)
 
 The wildcard character ```.``` will match any one character in a pattern.
 It is also called 'dot' or 'period'.
@@ -135,9 +135,9 @@ let unRegex = /.un/;                       // the '.' represents any character. 
 let result = unRegex.test(exampleStr);     // console would display 'true'
 ```
 
-## Match Single Character with Multiple Possibilities ([])
+### Match Single Character with Multiple Possibilities ([])
 
-- The module covered literal patterns (/literal/) and wildcard character (.), which are the extremes of regular expressions.
+- Previous modules covered literal patterns (/literal/) and wildcard character (.), which are the extremes of regular expressions.
 - literal pattern method finds exact matches and the wildcard method matches everything.
 - Add some flexibility in the search with 'character classes'.
 - It allows you do define a group of characters you wish to match by placing the specific characters inside square brackets ([]).
@@ -160,11 +160,11 @@ Use a character class with vowels (a, e, i, o, u) in your regex vowelRegex to fi
 Note: Be sure to match both upper- and lowercase vowels.
 
 ```js
-let quoteSample = "Beware of bugs in teh above code; I have only proved it correct, not tried it";
+let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it";
 /* Include all vowels wrapped in '[]' in the regex. The vowels do not need to be separated with commas.
 Also, it should include the global search flag to find repeating vowels, 
 as well as the ignore letter casing flag to find both upper and lower case vowels.*/
-let vowelRegex = /[aeiou]gi/;
+let vowelRegex = /[aeiou]/ig;
 // Apply the .match method on the 'quoteSample' and pass 'vowelRegex' in the parentheses
 let result = quoteSample.match(vowelRegex);
 
