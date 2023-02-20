@@ -154,7 +154,7 @@ bugStr.match(bgRegex);      // ["bug"]
 bogStr.match(bgRegex);      // null
 ```
 
-### Exercise ([])
+#### Exercise ([])
 
 Use a character class with vowels (a, e, i, o, u) in your regex vowelRegex to find all the vowels in the string quoteSample.
 Note: Be sure to match both upper- and lowercase vowels.
@@ -172,7 +172,7 @@ console.log(quoteSample.match(vowelRegex));
 // Console will display all 25 vowels identified in the string
 ```
 
-## Match Letters of the Alphabet (range of characters)
+### Match Letters of the Alphabet (range of characters)
 
 - Instead of having to specify each character you wish to match as shown in the previous exercise, a range of characters can be specified using the hyphen (-).
 
@@ -186,7 +186,7 @@ batStr.match(bgRegex);      // ["bat"]
 matStr.match(bgRegex);      // null
 ```
 
-### Exercise ([-])
+#### Exercise ([-])
 
 Match all the letters in the string quoteSample.
 
@@ -202,7 +202,7 @@ let result = quoteSample.match(alphabetRegex);
 console.log(quoteSample.match(alphabetRegex)); //Console will display all the characters present in the string in sequence
 ```
 
-## Match Letters and Numbers of the Alphabet
+### Match Letters and Numbers of the Alphabet
 
 - Using the hyphen ```-``` works not only with matching a range of characters; it also works with range of numbers.
 - Range of numbers specified are inclusive of the numbers entered, i.e /[0-9]/ includes the number '0' and '9'.
@@ -214,7 +214,7 @@ let myRegex = /[a-z0-9]ig;      // The flags will match all upper and lowercase 
 jennyStr.match(myRegex);        // Notice that the character range and number range are not separated with a comma
 ```
 
-### Exercise ([a-z0-9])
+#### Exercise ([a-z0-9])
 
 Create a single regex that matches a range of letters between h and s, and a range of numbers between 2 and 6. Remember to include the appropriate flags in the regex.
 
@@ -229,13 +229,13 @@ console.log(quoteSample.match(myRegex));
 // console will display all (repeating, upper and lowercase) characters and numbers applicable to the range specified
 ```
 
-## Match Single Characters Not Specified (Negated Character Sets)
+### Match Single Characters Not Specified (Negated Character Sets)
 
 - It is also possible to create a character set to exclude the specified characters from the result.
 - This is called 'Negated Character Set'
 - To create a negated character set, enter a caret (^) after the opening bracket and before the characters you want excluded.
 
-### Exercise (/[^]/)
+#### Exercise (/[^]/)
 
 Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex.
 
@@ -251,7 +251,7 @@ console.log(quoteSample.match(myRegex));
 // Notice that the result returns white spaces, as well as special characters.
 ```
 
-## Match Consecutive Characters
+### Match Consecutive Characters
 
 - Sometimes it is necessary to match a character (or a group of characters) that appear one or more times consecutively.
 - Use the '+' character to check for such cases. Note that it only looks for consecutive characters.
@@ -273,7 +273,7 @@ testStr3.match(testRegex);  // ["a", "a"] It also looks for repeating instances 
 testStr4.match(testRegex);  // null
 ```
 
-### Exercise (/a+/g)
+#### Exercise (/a+/g)
 
 You want to find matches when the letter s occurs one or more times in Mississippi. Write a regex that uses the + sign.
 
@@ -288,7 +288,7 @@ console.log(difficultSpelling.match(myRegex));
 // console will display ["ss", "ss"]
 ```
 
-## Match Characters that Occur Zero or More Times
+### Match Characters that Occur Zero or More Times
 
 - There is a way to match characters that occur zero or times.
 - Similar to the use of '+' in the previous exercise, use the asterisk '*' to look for specified character that repeat zero or more times.
@@ -304,7 +304,7 @@ gPhrase.match(goRegex);     // ["g"]
 oPhrase.match(goRegex);     // null
 ```
 
-### Exercise (/Aa*/)
+#### Exercise (/Aa*/)
 
 Create a regex chewieRegex that uses the * character to match an uppercase A character immediately followed by zero or more lowercase a characters in chewieQuote.
 
@@ -320,14 +320,14 @@ console.log(chewieQuote.match(chewieRegex));
 //console will display ["Aaaaaaaaaaaaaaaa"]
 ```
 
-## Greedy Matching and Lazy Matching
+### Greedy Matching and Lazy Matching
 
 - Regular expressions are by default 'greedy'.
 - It means that it finds the longest possible part of a string that fits the specified regex pattern.
 - The opposite of 'greedy' is 'lazy'.
 - It means that if finds the smallest possible part of the string that satisfies the specified regex pattern.
 
-### Greedy (Includes all possible matches)
+#### Greedy (Includes all possible matches)
 
 ```/t[a-z]*i/;```
 
@@ -343,7 +343,7 @@ let result = myStr.match(myRegex);
 // it would return ["titani"]. It finds the longest possible sub-string that matches against the original string.
 ```
 
-### Lazy (Excludes all possible matches)
+#### Lazy (Excludes all possible matches)
 
 Lazy matching can be achieved by using the '?' character.
 
@@ -365,7 +365,7 @@ It looks for all of the lowercase letters from 'a' to 'z' found between the firs
 Then the '?' will exclude all matched patterns and return the result.*/
 ```
 
-### Exercise (Lazy Matching ```*?```)
+#### Exercise (Lazy Matching ```*?```)
 
 Fix the regex /<.*>/ to return the HTML tag ```<h1>``` and not the text ```"<h1>Winter is coming</h1>"```.
 Remember the wildcard . in a regular expression matches any character.
