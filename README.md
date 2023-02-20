@@ -331,10 +331,10 @@ console.log(chewieQuote.match(chewieRegex));
 
 ```/t[a-z]*i/;```
 
-The above regex pattern looks for a string that begins with 't' and ends with 'i'.
-In between the 't' and 'i' can be zero or more lowercase letters between 'a' and 'z'.
+- The above regex pattern looks for a string that begins with 't' and ends with 'i'.
+- In between the 't' and 'i' can be zero or more lowercase letters between 'a' and 'z'.
 
-If the above regex pattern is applied to a variable defined as "titanic", it would return the following
+- If the above regex pattern is applied to a variable defined as "titanic", it would return the following
 
 ```js
 let myStr = "titanic";
@@ -345,16 +345,15 @@ let result = myStr.match(myRegex);
 
 #### Lazy (Excludes all possible matches)
 
-Lazy matching can be achieved by using the '?' character.
+- Lazy matching can be achieved by using the '?' character.
 
 ```/t[a-z]*?i/;```
 
-The above regex pattern is the exact opposite of the 'greedy' regex pattern.
-It will look for a string that begins with 't' and ends with 'i'.
-In between 't' and 'i' can be zero or more lowercase letters between 'a' and 'z',
-and by adding '?', it will exclude all matched patterns.
+- The above regex pattern is the exact opposite of the 'greedy' regex pattern.
+- It will look for a string that begins with 't' and ends with 'i'.
+- In between 't' and 'i' can be zero or more lowercase letters between 'a' and 'z', and by adding '?', it will exclude all matched patterns.
 
-So, if the above regex pattern is applied to a variable defined as "titanic", it would return the following
+- So, if the above regex pattern is applied to a variable defined as "titanic", it would return the following
 
 ```js
 let myStr = "titanic";
@@ -367,8 +366,8 @@ Then the '?' will exclude all matched patterns and return the result.*/
 
 #### Exercise (Lazy Matching ```*?```)
 
-Fix the regex /<.*>/ to return the HTML tag ```<h1>``` and not the text ```"<h1>Winter is coming</h1>"```.
-Remember the wildcard . in a regular expression matches any character.
+- Fix the regex /<.*>/ to return the HTML tag ```<h1>``` and not the text ```"<h1>Winter is coming</h1>"```.
+- Remember the wildcard . in a regular expression matches any character.
 
 ```js
 let text = "<h1>Winter is coming</h1>";
@@ -385,11 +384,11 @@ let result = text.match(myRegex);
   - Therefore, the result should return a string that begins with '<' and end with '>' with any characters in between that are found in the original string.
 - In this case, it would return ```"<h1>Winter is coming</h1>"```
 
-In order to return only the opening tag ```"<h1>"```, the regex pattern needs alteration.
+- In order to return only the opening tag ```"<h1>"```, the regex pattern needs alteration.
 
-I am having a bit of trouble understanding the logic behind this.
+- I am having a bit of trouble understanding the logic behind this.
 
-I know the answer to this exercise so let's unpack that first.
+- I know the answer to this exercise so let's unpack that first.
 
 ```js
 let text = "<h1>Winter is coming</h1>;
@@ -397,19 +396,19 @@ let myRegex = /<.*?>/;
 let result = text.match(myRegex);       // It would return ["<h1>"]
 ```
 
-So the above is the correct answer.
+- So the above is the correct answer.
 
 BUT
 
-If ```/<.*>/``` provided in the original challenge includes all characters between the first '<' and last '>',
+- If ```/<.*>/``` provided in the original challenge includes all characters between the first '<' and last '>',
 shouldn't ```/<.*?>/``` EXCLUDE all characters between the first '<' and last '>' to return ["<>"]?
 (It is in fact the shortest possible string to be returned when compared to the original string)
 
 OR
 
-Does ```/<.*?>/``` terminate the iteration at the first sight of the character '>'?
-Meaning that it doesn't even bother iterating through the entire string. Hence, LAZY matching.
-If this is the case, it makes sense.
+- Does ```/<.*?>/``` terminate the iteration at the first sight of the character '>'?
+- Meaning that it doesn't even bother iterating through the entire string. Hence, LAZY matching.
+- If this is the case, it makes sense.
 
 I even tried the following and the challenge passed.
 
@@ -433,22 +432,22 @@ let myRegex = /<..>>*?/;
 
 But passing the challenge and understanding the logic is a different thing.
 
-### Greedy vs. Lazy
+#### Greedy vs. Lazy
 
-Now I understand why it's called greedy and lazy.
+- Now I understand why it's called greedy and lazy.
 
-Greedy, being greedy, will iterate through as much of the given string as possible to satisfy the regex pattern.
+- Greedy, being greedy, will iterate through as much of the given string as possible to satisfy the regex pattern.
 
 Whereas
 
-Lazy, being lazy, will iterate through as little of the given string as possible to return the shortest possible string that still satisfies the regex pattern.
+- Lazy, being lazy, will iterate through as little of the given string as possible to return the shortest possible string that still satisfies the regex pattern.
 
-So, ```/<.*?>/``` will stop matching the regex pattern at the first sight of '>'. Which will return ```<h1>```
+- So, ```/<.*?>/``` will stop matching the regex pattern at the first sight of '>'. Which will return ```<h1>```
 
-## Find the Criminals challenge
+### Find the Criminals challenge
 
-Write a greedy regex that finds one or more criminals within a group of other people.
-A criminal is represented by the capital letter C.
+- Write a greedy regex that finds one or more criminals within a group of other people.
+- A criminal is represented by the capital letter C.
 
 - Remember, it's a greedy regex pattern. Regex is greedy by default, unless specified 'lazy'.
 - One or more criminals 'C' within a group of other people (other characters)
@@ -462,13 +461,13 @@ A criminal is represented by the capital letter C.
 let reCriminals = /C+/g; // The solution
 ```
 
-## Match Beginning String Patterns (/^/)
+### Match Beginning String Patterns (/^/)
 
-Previously, the caret (^) character was used within a character set (/[^aeiou0-9]/) to create a negated character set, which are characters that are specified to be excluded from the match pattern.
-It serves a different purpose when it is used without a character set.
-It is used to search for patterns at the beginning of strings.
+- Previously, the caret (^) character was used within a character set (/[^aeiou0-9]/) to create a negated character set, which are characters that are specified to be excluded from the match pattern.
+- It serves a different purpose when it is used without a character set.
+- It is used to search for patterns at the beginning of strings.
 
-Use the caret character in a regex to find Cal only in the beginning of the string rickyAndCal.
+- Use the caret character in a regex to find Cal only in the beginning of the string rickyAndCal.
 
 ```js
 let rickyAndCal = "Cal and Ricky both like racing";
@@ -478,13 +477,13 @@ let result = calRegex.test(rickyAndCal);
 // The result will return 'true'
 ```
 
-## Match Ending String Patterns (/$/)
+### Match Ending String Patterns (/$/)
 
-Opposite to the previous exercise, there is a way to search for ending string patterns.
-The caret (^) was place prior to the regex to search for the beginning string patterns.
-Use the anchor character ($) after the regex to search for ending string patterns.
+- Opposite to the previous exercise, there is a way to search for ending string patterns.
+- The caret (^) was place prior to the regex to search for the beginning string patterns.
+- Use the anchor character ($) after the regex to search for ending string patterns.
 
-Use the anchor character ($) to match the string caboose at the end of the string caboose.
+- Use the anchor character ($) to match the string caboose at the end of the string caboose.
 
 ```js
 let caboose = "The last car on a train is the caboose";
@@ -495,7 +494,7 @@ let result = lastRegex.test(caboose);
 // The result will return 'true'
 ```
 
-## Match All Letters and Numbers
+### Match All Letters and Numbers
 
 - There is a regex pattern shortcut to match all letters (upper and lowercase), as well as numbers and the underscore (_)
 - This is referred to as the 'alphanumeric characters'.
@@ -503,7 +502,7 @@ let result = lastRegex.test(caboose);
 
 ```/\w/; = /[A-Za-z0-9_];```
 
-### Exercise (/\w/)
+#### Exercise (\w)
 
 Use the shorthand character class \w to count the number of alphanumeric characters in various quotes and strings.
 
@@ -515,11 +514,11 @@ let alphabetRegexV2 = /\w/g;
 let result = quoteSample.match(alphabetRegexV2).length; // It will return '31'
 ```
 
-## Match Everything but Letters and numbers
+### Match Everything but Letters and numbers
 
-The previous exercise used the shorthand ```/\w/``` to search for alphanumeric characters.
-The opposite is ```/\W/``` (notice the capital 'W') which is used to search for everything EXCEPT alphanumeric characters.
-The longhand for the above shorthand is ```[^A-Za-z0-9_]```
+- The previous exercise used the shorthand ```/\w/``` to search for alphanumeric characters.
+- The opposite is ```/\W/``` (notice the capital 'W') which is used to search for everything EXCEPT alphanumeric characters.
+- The longhand for the above shorthand is ```[^A-Za-z0-9_]```
 
 ```js
 let shortHand = /\W/;
@@ -529,9 +528,9 @@ numbers.match(shortHand);   // Result would return '%'
 sentence.match(shortHand);  // Result would return '!'
 ```
 
-### Exercise (/\W/)
+#### Exercise (/\W/)
 
-Use the shorthand character class \W to count the number of non-alphanumeric characters in various quotes and strings.
+- Use the shorthand character class \W to count the number of non-alphanumeric characters in various quotes and strings.-
 
 ```js
 let quoteSample = "The five boxing wizards jump quickly.";
@@ -545,16 +544,16 @@ console.log(quoteSample.match(nonAlphabetRegex));
 // console will display [ ' ', ' ', ' ', ' ', ' ', '.' ]
 ```
 
-## Match All Numbers
+### Match All Numbers
 
-Another common shortcut for string pattern is digits or numbers.
-The shorthand is \d with a lowercase 'd'
-The longhand, or character class is [0-9], which looks for a single character of any number between zero and nine.
+- Another common shortcut for string pattern is digits or numbers.
+- The shorthand is \d with a lowercase 'd'
+- The longhand, or character class is [0-9], which looks for a single character of any number between zero and nine.
 
-### Exercise (/\d/)
+#### Exercise (/\d/)
 
-Use the shorthand character class \d to count how many digits are in movie titles.
-Written out numbers ("six" instead of 6) do not count.
+- Use the shorthand character class \d to count how many digits are in movie titles.
+- Written out numbers ("six" instead of 6) do not count.
 
 ```js
 let movieName = "2001: A Space Odyssey";
@@ -565,15 +564,14 @@ let result = movieName.match(numRegex).length;
 // Result would return '4'
 ```
 
-## Match All Non-Numbers
+### Match All Non-Numbers
 
-To search for all non-numbers as opposed to the previous exercise,
-use \D with an uppercase D. The longhand equivalent is ```[^0-9]```,
-which looks for a single character that is not a number between zero and nine.
+- To search for all non-numbers as opposed to the previous exercise, use \D with an uppercase D.
+- The longhand equivalent is ```[^0-9]```, which looks for a single character that is not a number between zero and nine.
 
-### Exercise (/\D/)
+#### Exercise (/\D/)
 
-Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
+- Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
 
 ```js
 let movieName = "2001: A Space Odyssey";
@@ -584,18 +582,18 @@ let result = movieName.match(noNumRegex).length;
 // Note that spaces between characters are also counted.
 ```
 
-## Restrict Possible Usernames (Challenge)
+### Restrict Possible Usernames (Challenge)
 
 NOTE: Do not confuse negated character sets with matching beginning of character sets
 ``` /^/ !== /[^]/ ```
 
-Usernames can only use alpha-numeric characters.
-The only numbers in the username have to be at the end.
-There can be zero or more of them at the end.
-Username cannot start with the number.
-Username letters can be lowercase and uppercase.
-Usernames have to be at least two characters long.
-A two-character username can only use alphabet letters as characters.
+- Usernames can only use alpha-numeric characters.
+- The only numbers in the username have to be at the end.
+- There can be zero or more of them at the end.
+- Username cannot start with the number.
+- Username letters can be lowercase and uppercase.
+- Usernames have to be at least two characters long.
+- A two-character username can only use alphabet letters as characters.
 
 Break it down
 
@@ -615,11 +613,11 @@ Put it together
 - It ends with zero or more numbers at the end.
 - Thus ensuring that if the username consists of two characters, it is both letters.
 
-I ran this through the editor and it failed.
-The second character can be a number if the username is longer than two characters. (ex. A74)
+- I ran this through the editor and it failed.
+- The second character can be a number if the username is longer than two characters. (ex. A74)
 
-Looked through the notes and realized I could use the OR(|) operator to add another pattern.
-I just need to come up with a pattern that satisfies something like 'A74'
+- Looked through the notes and realized I could use the OR(|) operator to add another pattern.
+- I just need to come up with a pattern that satisfies something like 'A74'
 
 - It still has to start with a case insensitive letter and may or may not end with a number.
 - But if the second character is a number, ONE OR MORE number should follow.
