@@ -701,7 +701,7 @@ let ohRegex = /Oh{3,6}\sno/;      // \s used to specify the white space between 
 let result = ohRegex.test(ohStr); // Result would return 'true'
 ```
 
-## Specify only Lower Number of Matches
+### Specify only Lower Number of Matches
 
 You can specify only the lower number of patterns without an upper limit.
 Keep the same syntax with the first number representing the lower limit followed by a comma.
@@ -718,7 +718,7 @@ multipleA.test(A2);           // false
 multipleA.test(A100);         // true
 ```
 
-### Exercise (/{x,}/)
+#### Exercise (/{x,}/)
 
 Change the regex haRegex to match the word Hazzah only when it has four or more letter z's.
 
@@ -728,12 +728,12 @@ let haRegex = /Haz{4,}ah/;
 let result = haRegex.test(haStr);
 ```
 
-## Specify Exact Number of Matches
+### Specify Exact Number of Matches
 
 This is self-explanatory.
 The syntax requires only one number in the curly braces to specify the exact number ``` /{x}/ ```
 
-### Exercise (/{x}/)
+#### Exercise (/{x}/)
 
 Change the regex timRegex to match the word Timber only when it has four letter m's.
 
@@ -743,7 +743,7 @@ let timRegex = /Tim{4}ber/;           // Will return true only if there are 4 'm
 let result = timRegex.test(timStr);   // true
 ```
 
-## Check for All or none
+### Check for All or none
 
 Sometimes the patterns searched may or may not exist.
 The difference between American and British English is a good example.
@@ -751,7 +751,7 @@ Words like color/colour or behavior/behaviour are such examples.
 
 Use a '?' following the character in question. It is essentially saying that this character is optional.
 
-### Exercise (/?/)
+#### Exercise (/?/)
 
 ```js
 let favWord = "favorite";
@@ -759,14 +759,14 @@ let favRegex = /favou?rite/;
 let result = favRegex.test(favWord);  // result will return true
 ```
 
-## Positive and Negative Lookahead
+### Positive and Negative Lookahead
 
 - Lookahead expressions are 'zero-width' assertion
 - It is a type of regular expression construct that checks whether a string matches a particular pattern
 - it does not consume any characters from the string being matched.
 - It checks to see if the specified pattern exists/condition is met.
 
-### Positive lookahead (?=...)
+#### Positive lookahead (?=...)
 
 - Positive lookahead asserts that the pattern specified inside the parentheses must match in order to pass.
 - But the pattern inside the parentheses do not represent any characters. It represents a condition that must be met (zero-width assertion)
@@ -777,7 +777,7 @@ Example
 
 ``` /\w+(?=\d)/ ``` This matches one or more alphanumeric character(s) that is followed by a digit. It must be followed by a digit to pass.
 
-### Negative lookahead (?!...)
+#### Negative lookahead (?!...)
 
 - Negative lookahead is exactly the opposite of positive lookahead.
 - It asserts that the pattern specified inside the parentheses must not match in order to pass.
@@ -786,7 +786,7 @@ Example
 
 ``` /\w+(?!\d)/ ``` This matches one or more alphanumeric character(s) that is not followed by a digit. In other words, if it is followed by a digit, the string will not pass.
 
-### Exercise (positive lookahead)
+##### Exercise (positive lookahead)
 
 Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long, and have two consecutive digits.
 
@@ -801,7 +801,7 @@ let pwRegex = /(?=\w{6,})(?=\D*\d{2})/;
 let result = pwRegex.test(sampleWord);    // result will return 'false'
 ```
 
-## Check for Mixed Grouping of Characters ((|))
+### Check for Mixed Grouping of Characters ((|))
 
 - You can create a regex pattern to check for groups of characters.
 - In other words, you can check if the string passed has 'this' OR 'that'.
@@ -817,7 +817,7 @@ testRegex.test(testStr);
 // 'Pumpkin' matches and result will return 'true'
 ```
 
-### Exercise ((|))
+#### Exercise ((|))
 
 Fix the regex so that it checks for the names of Franklin Roosevelt or Eleanor Roosevelt in a case sensitive manner and it should make concessions for middle names.
 
@@ -831,7 +831,7 @@ let myRegex = /(Franklin|Eleanor)\D+Roosevelt/;
 let result = myRegex.test(myString);    // Result will return 'true'
 ```
 
-## Reuse Patterns Using Capture Groups
+### Reuse Patterns Using Capture Groups
 
 - Regex can be used to match identical repeating character patterns.
 
@@ -849,7 +849,7 @@ repeatRegex.test(repeatStr);      // true
 repeatStr.match(repeatRegex);     // it will return an array with the matched substring and its capture group(s) ["row row row", "row"]
 ```
 
-### Exercise (Capture Group)
+#### Exercise (Capture Group)
 
 Use capture groups in reRegex to match a string that consists of only the same number repeated exactly three times separated by single spaces.
 
@@ -867,7 +867,7 @@ let reRegex = /^(\d+) \1 \1$/;
 let result = reRegex.test(repeatNum);   // true
 ```
 
-## Use Capture Groups to Search and Replace (.replace)
+### Use Capture Groups to Search and Replace (.replace)
 
 Use a regex pattern to search for a strong and use a .replace method to replace the string matched.
 
@@ -881,7 +881,7 @@ wrongText.replace(silverRegex, "blue");   // "The sky is blue."
 
 For example ``` "Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1') ``` The replace call will return "Camp Code"
 
-### Exercise (.replace)
+#### Exercise (.replace)
 
 - Write a regex fixRegex using three capture groups that will search for each word in the string one two three.
 - Then update the replaceText variable to replace one two three with the string three two one and assign the result to the result variable.
@@ -897,7 +897,7 @@ let replaceText = "$3 $2 $1";
 let result = str.replace(fixRegex, replaceText);  // Result will display "three two one"
 ```
 
-## Remove Whitespace from Start and End
+### Remove Whitespace from Start and End
 
 Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
 
