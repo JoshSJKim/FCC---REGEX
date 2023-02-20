@@ -606,7 +606,7 @@ Break it down
 
 Put it together
 
-``` /^[a-z][a-z]+\d*$/i: ```
+```/^[a-z][a-z]+\d*$/i;```
 
 - The first character is a letter, case insensitive due to the (i) flag at the end.
 - It is followed by one or more case insensitive letters.
@@ -641,7 +641,7 @@ let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
 let result = userCheck.test(username);
 ```
 
-## Match Whitespace
+### Match Whitespace
 
 - You can use a regex pattern to search for white spaces in a string.
 - White spaces include carriage return, tab, form feed, and new line characters [ \r\t\f\n\v]
@@ -658,7 +658,7 @@ console.log(sample.match(countWhiteSpace).length);
 // console will display '5'
 ```
 
-## Match Non-Whitespace Characters
+### Match Non-Whitespace Characters
 
 This should be self-explanatory now.
 The syntax is '\S'
@@ -671,7 +671,7 @@ let result = sample.match(countNonWhiteSpace).length;
 // console will display '38'
 ```
 
-## Specify Upper and Lower Number of Matches (Quantifier)
+### Specify Upper and Lower Number of Matches (Quantifier)
 
 - '+' allows you to search for one or more characters
 - '*' allows you to search for zero or more characters
@@ -691,13 +691,13 @@ multipleA.test(A2);        // false
 - The quantifier should be placed immediately after the character you wish to apply the quantifier to.
 - NOTE: If there are multiple words with space in between the string, it is necessary to specify the white space in the regex pattern.
 
-### Exercise (/{}/)
+#### Exercise (/{}/)
 
 Change the regex ohRegex to match the entire phrase Oh no only when it has 3 to 6 letter h's.
 
 ```js
 let ohStr = "Ohhh no";
-let ohRegex = /Oh{3,6}\sno/;      // \s used to specify the white space between "Oh" and "no"
+let ohRegex = /Oh{3,6}\sno/;      // \s used to specify the white space between "Oh" and "no" or 'let ohRegex = /Oh{3,6} no/;'  
 let result = ohRegex.test(ohStr); // Result would return 'true'
 ```
 
